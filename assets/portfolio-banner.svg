@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="310" viewBox="0 0 1200 310" role="img" aria-labelledby="title desc">
+<title id="title">Engineering systems that work</title>
+<desc id="desc">Dark navy title banner with abstract network connections and a teal-blue gradient.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1226"/><stop offset="1" stop-color="#152c47"/></linearGradient>
+ <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#62d6d0"/><stop offset="1" stop-color="#81acff"/></linearGradient>
+ <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#43607c" stroke-opacity=".2" stroke-width="1"/></pattern>
+ <filter id="glow"><feGaussianBlur stdDeviation="15"/></filter>
+</defs>
+<rect width="1200" height="310" rx="18" fill="url(#bg)"/>
+<rect width="1200" height="310" rx="18" fill="url(#grid)"/>
+<circle cx="1010" cy="120" r="115" fill="#2b7b9e" opacity=".23" filter="url(#glow)"/>
+<g fill="none" stroke="#6ccdd5" stroke-width="2" opacity=".65">
+ <path d="M830 85L935 47L1040 100L1116 57M830 85L905 158L1040 100L1115 212L990 254L905 158L811 227" />
+ <path d="M935 47L905 158M1040 100L990 254M811 227L990 254" stroke-dasharray="5 8" opacity=".7"/>
+</g>
+<g fill="#78d7da" stroke="#0f213c" stroke-width="6">
+ <circle cx="830" cy="85" r="9"/><circle cx="935" cy="47" r="9"/><circle cx="1040" cy="100" r="11"/>
+ <circle cx="1116" cy="57" r="9"/><circle cx="905" cy="158" r="11"/><circle cx="1115" cy="212" r="9"/>
+ <circle cx="990" cy="254" r="9"/><circle cx="811" cy="227" r="9"/>
+</g>
+<text x="72" y="78" font-family="Arial, Helvetica, sans-serif" font-size="19" letter-spacing="4" fill="#7de2d6" font-weight="bold">TECHNICAL PORTFOLIO</text>
+<text x="70" y="146" font-family="Arial, Helvetica, sans-serif" font-size="51" font-weight="bold" fill="#f4f8ff">Engineering systems</text>
+<text x="70" y="204" font-family="Arial, Helvetica, sans-serif" font-size="51" font-weight="bold" fill="url(#accent)">that work.</text>
+<text x="74" y="249" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#c2cfde">Infrastructure  /  Security  /  Search  /  Applied AI</text>
+</svg>

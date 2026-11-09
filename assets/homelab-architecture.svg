@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="590" viewBox="0 0 1300 590" role="img" aria-labelledby="title desc">
+<title id="title">Private Proxmox home lab architecture</title>
+<desc id="desc">Remote laptop connects via Tailscale to a home server hosting Tailscale gateway, Pi-hole DNS, and Nginx web server containers.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f192b"/><stop offset="1" stop-color="#152840"/></linearGradient>
+ <linearGradient id="server" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#203d57"/><stop offset="1" stop-color="#1b3048"/></linearGradient>
+ <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M2 2L10 6L2 10" fill="none" stroke="#8bd7d5" stroke-width="2"/></marker>
+</defs>
+<rect width="1300" height="590" rx="18" fill="url(#bg)"/>
+<text x="60" y="64" font-family="Arial,sans-serif" font-size="30" fill="#edf6ff" font-weight="bold">HOME LAB / PRIVATE ACCESS</text>
+<text x="60" y="96" font-family="Arial,sans-serif" font-size="16" fill="#9bb1c8">Sanitized architecture · Container-first · No public management exposure</text>
+<g font-family="Arial,sans-serif">
+ <rect x="58" y="199" width="212" height="144" rx="18" fill="#193149" stroke="#587b99" stroke-width="2"/>
+ <text x="88" y="245" font-size="21" fill="#f5f9ff" font-weight="bold">Remote laptop</text>
+ <text x="88" y="278" font-size="15" fill="#b6cadb">Administration &amp;</text>
+ <text x="88" y="300" font-size="15" fill="#b6cadb">development</text>
+ <rect x="333" y="223" width="198" height="97" rx="16" fill="#1e4356" stroke="#5ed8c6" stroke-width="2"/>
+ <text x="363" y="260" font-size="21" fill="#f5f9ff" font-weight="bold">Tailscale</text>
+ <text x="363" y="288" font-size="15" fill="#afece5">Encrypted overlay</text>
+ <path d="M270 272H325M531 272H583" fill="none" stroke="#8bd7d5" stroke-width="3" marker-end="url(#arrow)"/>
+ <rect x="587" y="148" width="659" height="354" rx="21" fill="url(#server)" stroke="#83a3c4" stroke-width="2"/>
+ <text x="619" y="191" font-size="26" font-weight="bold" fill="#f5f9ff">Proxmox VE host</text>
+ <text x="619" y="219" font-size="16" fill="#bed0e2">Debian · Ethernet bridge · 8 GB RAM · 1 TB HDD</text>
+ <rect x="621" y="255" width="185" height="155" rx="16" fill="#123a45" stroke="#68d6c4" stroke-width="2"/>
+ <text x="647" y="290" font-size="21" fill="#eefaff" font-weight="bold">Tailscale</text>
+ <text x="647" y="316" font-size="18" fill="#eefaff">gateway</text>
+ <text x="647" y="359" font-size="14" fill="#addbd6">Debian LXC</text>
+ <text x="647" y="381" font-size="14" fill="#addbd6">Private routing</text>
+ <rect x="838" y="255" width="180" height="155" rx="16" fill="#1e3657" stroke="#8cadff" stroke-width="2"/>
+ <text x="864" y="291" font-size="21" fill="#eefaff" font-weight="bold">Pi-hole</text>
+ <text x="864" y="317" font-size="17" fill="#eefaff">DNS filtering</text>
+ <text x="864" y="359" font-size="14" fill="#b9caff">Debian LXC</text>
+ <text x="864" y="381" font-size="14" fill="#b9caff">Validated blocking</text>
+ <rect x="1048" y="255" width="163" height="155" rx="16" fill="#263b54" stroke="#d2b0ff" stroke-width="2"/>
+ <text x="1072" y="291" font-size="21" fill="#eefaff" font-weight="bold">Nginx</text>
+ <text x="1072" y="317" font-size="17" fill="#eefaff">Web server</text>
+ <text x="1072" y="359" font-size="14" fill="#d6c9ed">Debian LXC</text>
+ <text x="1072" y="381" font-size="14" fill="#d6c9ed">Static site</text>
+ <path d="M806 332H830" stroke="#8bd7d5" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+ <path d="M806 424H1129V416" stroke="#8bd7d5" stroke-width="2.5" stroke-dasharray="7 6" fill="none" marker-end="url(#arrow)"/>
+ <text x="615" y="473" font-size="14" fill="#9fbbd0">Container traffic uses the host's private network.</text>
+ <rect x="60" y="465" width="455" height="65" rx="12" fill="#152e43" stroke="#52748e"/>
+ <text x="81" y="492" font-size="16" font-weight="bold" fill="#e9f6ff">Design priorities</text>
+ <text x="81" y="514" font-size="14" fill="#b9cfe0">Low overhead  ·  Remote validation  ·  Private-first access</text>
+</g>
+</svg>
