@@ -58,5 +58,3 @@ This portfolio highlights selected hands-on work. It is **a documentation reposi
 ---
 
 **Connect:** [GitHub](https://github.com/andymunoz92/technical-portfolio) · [LinkedIn](https://www.linkedin.com/in/andymunoz01/) · [Email](mailto:andyamunoz92@icloud.com)
-
-<sub>Before publishing: replace placeholders, verify all claims, and follow the [publishing checklist](docs/publishing-checklist.md).</sub>
