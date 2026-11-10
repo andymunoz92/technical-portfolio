@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="description" content="Technical portfolio of Andy Munoz: Proxmox infrastructure, Linux networking, Python research, information retrieval, and security projects.">
+  <title>Andy Munoz | Systems, Security & Software</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080d18;
+      --panel: #111b2b;
+      --panel-2: #16243a;
+      --border: #26374e;
+      --text: #f1f7ff;
+      --muted: #a7b7cb;
+      --quiet: #8194af;
+      --accent: #7fe0cf;
+      --accent-2: #8fb7ff;
+      --max: 1120px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.65; }
+    body::before { content: ""; position: absolute; inset: 0 0 auto; height: 700px; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 79% 22%, #1b4460aa 0, transparent 48%), radial-gradient(ellipse at 8% 22%, #173b54aa 0, transparent 45%); }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 3px; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(calc(100% - 44px), var(--max)); margin: 0 auto; }
+    .skip { position: absolute; top: -60px; left: 18px; background: var(--accent); color: #061222; padding: 7px 12px; z-index: 10; }
+    .skip:focus { top: 10px; }
+    header { position: sticky; top: 0; z-index: 8; background: #080d18e8; border-bottom: 1px solid #27364a; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.02em; }
+    .brand-mark { width: 37px; height: 37px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(130deg, #69d5c3, #699fe6); color: #071427; font-size: 13px; font-weight: 850; }
+    .brand .name { font-size: 15px; }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { font-size: 13px; color: #c7d4e5; transition: color .2s; }
+    nav a:hover, nav a:focus-visible { color: var(--accent); }
+    .nav-cta { padding: 9px 13px; border: 1px solid #3b536d; border-radius: 10px; background: #17273b; font-weight: 650; }
+    main { overflow: hidden; }
+    .hero { padding: 92px 0 65px; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 56px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 760; }
+    .eyebrow::before { content: ""; width: 21px; height: 1px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin: 20px 0 23px; font-size: clamp(42px, 5.3vw, 74px); letter-spacing: -.065em; line-height: 1.07; font-weight: 780; }
+    h1 span, .gradient { background: linear-gradient(95deg, #81e3d5 8%, #a2baff 93%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .intro { max-width: 550px; color: var(--muted); font-size: 16px; line-height: 1.85; }
+    .buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 30px; }
+    .btn { min-height: 45px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 11px; padding: 10px 18px; font-size: 13px; font-weight: 750; border: 1px solid #3a506a; transition: transform .2s, background .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: #91d8d8; }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: #061522; }
+    .btn-primary:hover { background: #a1f1e4; }
+    .btn-secondary { color: #e8f2ff; background: #142238; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 20px; color: #93a9c3; font-size: 12px; margin-top: 33px; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .dot { height: 7px; width: 7px; background: #7bddcb; border-radius: 50%; display: inline-block; box-shadow: 0 0 16px #6ccdbc88; }
+    .showcase { border: 1px solid #37536b; padding: 12px; border-radius: 20px; background: linear-gradient(155deg, #12253b, #101827); box-shadow: 0 28px 80px #02060d8a; transform: rotate(1deg); }
+    .showcase img { border-radius: 11px; width: 100%; }
+    .showcase-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 14px 8px 4px; }
+    .small-label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; font-weight: 750; color: var(--accent); }
+    .showcase-bottom strong { display: block; font-size: 13px; letter-spacing: -.01em; margin-top: 3px; }
+    .showcase-bottom .pill { font-size: 10px; color: #a8e5d9; border: 1px solid #335e61; border-radius: 999px; padding: 4px 9px; white-space: nowrap; }
+    .stripe { border-block: 1px solid #223349; background: #0d1726; }
+    .stripe-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; padding: 19px 0; }
+    .stripe span { color: #b4c7dd; font-size: 12px; font-weight: 650; letter-spacing: .015em; }
+    section { padding: 90px 0; }
+    .section-top { margin-bottom: 34px; display: flex; justify-content: space-between; gap: 30px; align-items: flex-end; }
+    .section-top p { color: var(--muted); max-width: 450px; margin: 0; font-size: 14px; }
+    .section-kicker { display: block; text-transform: uppercase; letter-spacing: .17em; font-size: 11px; font-weight: 750; color: var(--accent); margin-bottom: 9px; }
+    h2 { font-size: clamp(28px, 3vw, 42px); letter-spacing: -.047em; line-height: 1.15; margin: 0; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .project { background: linear-gradient(145deg, #142235, #0e1929); border: 1px solid #273a50; border-radius: 17px; padding: 25px; display: flex; flex-direction: column; min-height: 292px; transition: transform .22s, border-color .22s, box-shadow .22s; }
+    .project:hover { transform: translateY(-5px); border-color: #4e8c9b; box-shadow: 0 13px 32px #02060e5f; }
+    .project-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: #20354c; color: #a0f1e2; font-size: 22px; margin-bottom: 24px; }
+    .project h3 { font-size: 17px; letter-spacing: -.025em; margin: 0 0 11px; }
+    .project p { font-size: 13px; color: #a8bad0; line-height: 1.7; margin-bottom: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .tag { font-size: 10px; font-weight: 650; color: #b8d4e6; border: 1px solid #304963; padding: 4px 8px; border-radius: 7px; }
+    .project-link { margin-top: 19px; color: #88e8d8; font-size: 12px; font-weight: 700; align-self: flex-start; }
+    .project-link:hover { text-decoration: underline; }
+    .lab { padding: 30px; border-radius: 22px; border: 1px solid #2c4259; background: #121f31; display: grid; grid-template-columns: 1.05fr .95fr; gap: 35px; align-items: center; }
+    .lab-art { background: #091424; border: 1px solid #2d4159; border-radius: 13px; padding: 13px; }
+    .lab-art img { width: 100%; border-radius: 7px; }
+    .lab-info h2 { margin: 11px 0 17px; }
+    .lab-info p { color: var(--muted); font-size: 14px; }
+    .lab-points { margin: 22px 0 28px; padding: 0; list-style: none; display: grid; gap: 12px; }
+    .lab-points li { display: flex; gap: 12px; align-items: flex-start; color: #c2d1e1; font-size: 13px; }
+    .check { color: #8de6d3; font-weight: 900; }
+    .details { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .detail { padding: 28px; background: #101d2d; border: 1px solid #283a51; border-radius: 17px; }
+    .detail h3 { margin: 0 0 12px; font-size: 18px; }
+    .detail p { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+    .process { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); margin-top: 30px; }
+    .process-item { padding: 22px 0 0; border-top: 2px solid #2b5661; }
+    .process-item strong { display: block; color: var(--accent); font-size: 12px; margin-bottom: 11px; }
+    .process-item h3 { font-size: 16px; margin: 0 0 8px; }
+    .process-item p { font-size: 13px; color: var(--muted); margin: 0; }
+    .closing { border-top: 1px solid #26364b; background: linear-gradient(150deg, #102238 0%, #0a1524 100%); }
+    .closing-grid { display: flex; gap: 30px; justify-content: space-between; align-items: center; }
+    .closing p { color: var(--muted); margin: 14px 0 0; max-width: 620px; }
+    footer { border-top: 1px solid #273b51; background: #080d18; }
+    .footer-inner { padding: 24px 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; align-items: center; color: #8298b1; font-size: 12px; }
+    .footer-inner a { color: #a8d7e3; }
+    .footer-inner a:hover { color: #9ef7e7; }
+    @media (max-width: 940px) { .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 60px; } .showcase { max-width: 650px; transform: none; } .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .lab { grid-template-columns: 1fr; } }
+    @media (max-width: 630px) { .container { width: min(calc(100% - 32px), var(--max)); } .nav { flex-wrap: wrap; padding: 12px 0; gap: 10px; } nav { gap: 12px; flex-wrap: wrap; } nav a { font-size: 11px; } .nav-cta { padding: 5px 8px; } h1 { font-size: clamp(39px, 10vw, 55px); } .hero { padding-top: 48px; } section { padding: 60px 0; } .section-top { display: block; } .section-top p { margin-top: 15px; } .project-grid, .details, .process { grid-template-columns: 1fr; } .project { min-height: auto; } .lab { padding: 18px; } .closing-grid { align-items: flex-start; flex-direction: column; } .stripe-inner { gap: 11px 18px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Andy Munoz homepage"><span class="brand-mark">AM</span><span class="name">Andy Munoz<span style="color:#7c96b1"> / Portfolio</span></span></a>
+      <nav aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#homelab">Home Lab</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" data-repo-root href="https://github.com">View GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <div class="container" id="top">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">Software · Security · Infrastructure</span>
+          <h1>Building systems.<br><span>Learning deeply.</span></h1>
+          <p class="intro">I'm <strong style="color:#f2f7ff">Andy Munoz</strong>, a computer science graduate and researcher who builds practical projects in Linux infrastructure, Python development, information retrieval, and cybersecurity—and documents the decisions behind them.</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" data-repo-root href="https://github.com">Browse source &amp; docs <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-meta"><span><i class="dot" aria-hidden="true"></i> M.S. Computer Science</span><span>Research · Cal Poly Pomona</span></div>
+        </div>
+        <div class="showcase">
+          <img src="assets/portfolio-banner.svg" alt="Technical portfolio illustration: Engineering systems that work" width="1200" height="310">
+          <div class="showcase-bottom">
+            <div><span class="small-label">Featured engineering work</span><strong>Home lab · Security research · Search systems</strong></div>
+            <span class="pill">Documented projects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stripe" aria-label="Technical focus areas">
+      <div class="container stripe-inner"><span>LINUX &amp; DEBIAN</span><span>PYTHON</span><span>PROXMOX &amp; LXC</span><span>NETWORKING</span><span>POSTGRESQL</span><span>SECURITY RESEARCH</span></div>
+    </div>
+    <section id="projects" class="container">
+      <div class="section-top">
+        <div><span class="section-kicker">Selected work</span><h2>Projects with purpose.</h2></div>
+        <p>Each project emphasizes implementation, decisions, validation, and lessons learned—not simply a list of technologies.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project"><div class="project-icon" aria-hidden="true">▣</div><h3>Proxmox Home Lab</h3><p>Repurposed an 8 GB desktop into a container-focused lab offering private remote access, DNS filtering, and Nginx web hosting.</p><div class="tags"><span class="tag">Proxmox VE</span><span class="tag">Debian</span><span class="tag">LXC</span></div><a class="project-link" href="projects/homelab.md" data-repo-file="projects/homelab.md">Explore project →</a></article>
+        <article class="project"><div class="project-icon" aria-hidden="true">⌕</div><h3>Tor / I2P Research</h3><p>Developed Python crawling and data-processing workflows for research into links and content across privacy networks.</p><div class="tags"><span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">PostgreSQL</span></div><a class="project-link" href="projects/tor-i2p-research.md" data-repo-file="projects/tor-i2p-research.md">Explore project →</a></article>
+        <article class="project"><div class="project-icon" aria-hidden="true">≡</div><h3>Information Retrieval</h3><p>Explored indexing, document representations, text classification, and ranking through implementations and experiments.</p><div class="tags"><span class="tag">TF-IDF</span><span class="tag">PageRank</span><span class="tag">Search</span></div><a class="project-link" href="projects/information-retrieval.md" data-repo-file="projects/information-retrieval.md">Explore project →</a></article>
+        <article class="project"><div class="project-icon" aria-hidden="true">◇</div><h3>Local LLM Experiments</h3><p>Experimented with local inference and database-backed workflows for text aggregation and research analysis.</p><div class="tags"><span class="tag">Ollama</span><span class="tag">Python</span><span class="tag">Local AI</span></div><a class="project-link" href="projects/local-llm-experiments.md" data-repo-file="projects/local-llm-experiments.md">Explore project →</a></article>
+        <article class="project"><div class="project-icon" aria-hidden="true">&lt;/&gt;</div><h3>Web Development</h3><p>Created responsive web layouts and established a private Nginx development environment inside the home lab.</p><div class="tags"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">Nginx</span></div><a class="project-link" href="projects/web-development.md" data-repo-file="projects/web-development.md">Explore project →</a></article>
+        <article class="project"><div class="project-icon" aria-hidden="true">✦</div><h3>Security Labs</h3><p>Practiced threat modeling, web application security, and hands-on security challenges to develop a defensive mindset.</p><div class="tags"><span class="tag">STRIDE</span><span class="tag">AppSec</span><span class="tag">Linux</span></div><a class="project-link" href="projects/security-labs.md" data-repo-file="projects/security-labs.md">Explore project →</a></article>
+      </div>
+    </section>
+    <section id="homelab" class="container" style="padding-top: 10px;">
+      <div class="lab">
+        <div class="lab-art"><img src="assets/homelab-architecture.svg" alt="Architecture diagram of a Proxmox server providing Tailscale access, Pi-hole DNS filtering, and Nginx website hosting" width="1200" height="675" loading="lazy"></div>
+        <div class="lab-info"><span class="section-kicker">Featured deep dive</span><h2>One machine.<br><span class="gradient">A working lab.</span></h2><p>Built with an 8 GB RAM HP desktop, the lab emphasizes resource efficiency, isolated services, and private remote management.</p>
+          <ul class="lab-points"><li><span class="check">✓</span><span><strong>Proxmox + Debian LXC</strong> for lightweight service isolation</span></li><li><span class="check">✓</span><span><strong>Tailscale</strong> for remote access without publicly exposing the management interface</span></li><li><span class="check">✓</span><span><strong>Pi-hole + Nginx</strong> for DNS filtering and private web development</span></li></ul>
+          <a class="btn btn-secondary" href="docs/homelab/README.md" data-repo-file="docs/homelab/README.md">Read the build journal ↗</a>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="container">
+      <div class="section-top"><div><span class="section-kicker">How I work</span><h2>Understand. Build. Verify.</h2></div><p>I use projects to connect computer science concepts with hands-on system administration and software engineering.</p></div>
+      <div class="details"><div class="detail"><h3>Research + Development</h3><p>My research and academic projects involve Python tooling, web data processing, information retrieval, and machine-learning techniques. I focus on producing explainable, testable workflows.</p></div><div class="detail"><h3>Systems + Troubleshooting</h3><p>My home lab provides a place to learn Linux, virtualization, networking, access controls, and operational troubleshooting through practical deployment and validation.</p></div></div>
+      <div class="process"><div class="process-item"><strong>01 / ARCHITECT</strong><h3>Define the constraint</h3><p>Understand resources, requirements, dependencies, and security trade-offs before implementation.</p></div><div class="process-item"><strong>02 / IMPLEMENT</strong><h3>Build iteratively</h3><p>Break a system into services and document configuration changes as each part becomes operational.</p></div><div class="process-item"><strong>03 / VALIDATE</strong><h3>Test and explain</h3><p>Verify behavior with commands, logs, and network tests; record what failed and what fixed it.</p></div></div>
+    </section>
+    <section class="closing"><div class="container closing-grid"><div><span class="section-kicker">More than a project gallery</span><h2>Explore the implementation details.</h2><p>The repository contains the full home-lab build journal, project write-ups, and the engineering decisions behind each system.</p></div><a class="btn btn-primary" data-repo-root href="https://github.com">Open documentation ↗</a></div></section>
+  </main>
+  <footer><div class="container footer-inner"><span>© <span id="year">2026</span> Andy Munoz · Built with HTML &amp; CSS · Hosted on GitHub Pages</span><span><a href="#top">Back to top ↑</a> &nbsp;·&nbsp; <a data-repo-root href="https://github.com">GitHub repository ↗</a></span></div></footer>
+  <script>
+    // Adapt repository links to the owner and repository of this GitHub Pages site.
+    // This avoids publishing an unverified username or maintaining hardcoded URLs.
+    (function () {
+      document.getElementById('year').textContent = String(new Date().getFullYear());
+      const host = window.location.hostname;
+      if (!host.endsWith('.github.io')) return;
+      const username = host.slice(0, -'.github.io'.length);
+      const firstSegment = window.location.pathname.split('/').filter(Boolean)[0];
+      const repo = firstSegment || host; // project site or user.github.io site
+      if (!/^[a-z0-9-]+$/i.test(username) || !/^[a-z0-9._-]+$/i.test(repo)) return;
+      const base = 'https://github.com/' + encodeURIComponent(username) + '/' + encodeURIComponent(repo);
+      document.querySelectorAll('[data-repo-root]').forEach(a => a.href = base);
+      document.querySelectorAll('[data-repo-file]').forEach(a => {
+        const path = a.getAttribute('data-repo-file');
+        if (/^[a-zA-Z0-9./_-]+$/.test(path) && !path.includes('..')) a.href = base + '/blob/main/' + path.split('/').map(encodeURIComponent).join('/');
+      });
+    })();
+  </script>
+</body>
+</html>
